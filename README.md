@@ -52,7 +52,7 @@ See https://github.com/kubernetes/minikube/issues/6246
     ```
     minikube dashboard
     ```
-1. Make sure that the ingress is enabled for minikube (the `make script should handle this)
+1. Make sure that the ingress is enabled for minikube (the `make` script should handle this)
     ```
     minikube addons enable ingress
     ```
@@ -60,7 +60,7 @@ See https://github.com/kubernetes/minikube/issues/6246
     ```
     cat /etc/hosts
     ```
-   If id does not exist
+   If minikube ip does not exist or is wrong, delete the old entry and run
    ```
    echo "$(minikube ip) local.kangox.com" | sudo tee -a /etc/hosts
    ```
