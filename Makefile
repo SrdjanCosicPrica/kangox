@@ -18,7 +18,7 @@ config: minikube-check
 	    echo "Using existing image $(IMAGE_REPOSITORY):$(IMAGE)";\
 	fi
 	echo "Applying resources to cluster\n"
-	python k8s/apply_resources.py $(IMAGE_REPOSITORY):$(IMAGE) --dev | kubectl apply -f - --force
+	python k8s/get_resources.py $(IMAGE_REPOSITORY):$(IMAGE) --minikube | kubectl apply -f - --force
 
 minikube-check: virtualbox-check
 	$(eval MINIKUBE_VERSION=$(shell minikube version))
