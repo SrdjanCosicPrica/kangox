@@ -8,9 +8,14 @@ python >= 3.7
 
 ## Installation
 1. [Install Minikube together with VirtualBox and Kubectl](https://kubernetes.io/docs/tasks/tools/install-minikube/)
+1. [Install Helm](https://helm.sh/docs/intro/install/)
 1. Install k8s requirements (Virtual environment recommended)
     ```
     pip3 install -r k8s/requirements.txt
+    ```
+1. Install RabbitMQ
+    ```
+    helm install rabbitmq k8s/rabbitmq
     ```
 1. Run make
     ```

@@ -42,8 +42,9 @@ INSTALLED_APPS = [
 
     'health_check',
     'health_check.db',
-    # 'health_check.contrib.rabbitmq',
-    # 'health_check.contrib.celery'
+    'health_check.contrib.rabbitmq',
+    # 'health_check.contrib.celery',
+    # 'django_celery_results'
 ]
 
 MIDDLEWARE = [
@@ -122,3 +123,9 @@ USE_TZ = True
 
 STATIC_URL = os.getenv('STATIC_URL', '/static/')
 STATIC_ROOT = os.getenv('STATIC_ROOT', '/static')
+
+# RabbitMQ
+BROKER_URL = f'amqp://user:{os.getenv("RABBITMQ_PASSWORD")}@rabbitmq-headless:5672'
+# Celery
+CELERY_BROKER_URL = BROKER_URL
+CELERY_RESULT_BACKEND = 'django-db'

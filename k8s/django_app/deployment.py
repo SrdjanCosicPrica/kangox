@@ -68,6 +68,15 @@ class Deployment(Resource):
                 client.V1EnvVar(
                     name='ALLOWED_HOSTS',
                     value='.kangox.com,127.0.0.1,[::1],localhost'
+                ),
+                client.V1EnvVar(
+                    name='RABBITMQ_PASSWORD',
+                    value_from=client.V1EnvVarSource(
+                        secret_key_ref=client.V1SecretKeySelector(
+                            name='rabbitmq',
+                            key='rabbitmq-password'
+                        )
+                    )
                 )
             ],
             readiness_probe=client.V1Probe(
